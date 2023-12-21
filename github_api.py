@@ -1,7 +1,12 @@
 from playwright.sync_api import APIRequestContext
 
-def create_repository(api_request_context: APIRequestContext,
-                      repo_name: str, is_private: bool, api_token: str):
+
+def create_repository(
+    api_request_context: APIRequestContext,
+    repo_name: str,
+    is_private: bool,
+    api_token: str,
+):
     return api_request_context.post(
         "/user/repos",
         headers={
@@ -11,8 +16,15 @@ def create_repository(api_request_context: APIRequestContext,
         data={"name": repo_name, "private": is_private},
     )
 
-def create_issue(api_request_context: APIRequestContext,
-                 github_user: str, repo_name: str, api_token: str, title: str, issue_body: str):
+
+def create_issue(
+    api_request_context: APIRequestContext,
+    github_user: str,
+    repo_name: str,
+    api_token: str,
+    title: str,
+    issue_body: str,
+):
     return api_request_context.post(
         f"/repos/{github_user}/{repo_name}/issues",
         headers={
@@ -22,8 +34,13 @@ def create_issue(api_request_context: APIRequestContext,
         data={"title": title, "body": issue_body},
     )
 
-def get_all_issue(api_request_context: APIRequestContext,
-                  github_user: str, repo_name: str, api_token: str) -> list:
+
+def get_all_issue(
+    api_request_context: APIRequestContext,
+    github_user: str,
+    repo_name: str,
+    api_token: str,
+) -> list:
     return api_request_context.get(
         f"/repos/{github_user}/{repo_name}/issues",
         headers={
@@ -32,22 +49,36 @@ def get_all_issue(api_request_context: APIRequestContext,
         },
     )
 
-def update_repository(api_request_context: APIRequestContext,
-                            repo_name: str, repo_update_name: str,
-                            username: str, description: str,
-                            is_private: bool, api_token: str):
+
+def update_repository(
+    api_request_context: APIRequestContext,
+    repo_name: str,
+    repo_update_name: str,
+    username: str,
+    description: str,
+    is_private: bool,
+    api_token: str,
+):
     return api_request_context.patch(
         f"/repos/{username}/{repo_name}",
         headers={
             "Accept": "application/vnd.github.v3+json",
             "Authorization": f"token {api_token}",
         },
-        data={"name": repo_update_name, "description": description, 
-              "private": is_private},
+        data={
+            "name": repo_update_name,
+            "description": description,
+            "private": is_private,
+        },
     )
 
-def remove_repository(api_request_context: APIRequestContext, 
-                      repo_name: str, username: str, api_token: str):
+
+def remove_repository(
+    api_request_context: APIRequestContext,
+    repo_name: str,
+    username: str,
+    api_token: str,
+):
     return api_request_context.delete(
         f"/repos/{username}/{repo_name}",
         headers={
@@ -55,4 +86,3 @@ def remove_repository(api_request_context: APIRequestContext,
             "Authorization": f"token {api_token}",
         },
     )
-
