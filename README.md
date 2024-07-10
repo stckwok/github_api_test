@@ -1,8 +1,21 @@
 # github_api_test
+
 GitHub API validation using Playwright
 
 - python -m venv venv
-- source venv/bin/activate
-- make install
+- source venv/bin/activate   (or .\venv\Scripts\activate for Windows)
+- make install  (or make install_win)
 - make lint
 - make test
+
+# Testing
+
+1. Specify which pytest tests to run from a file
+
+   ```
+    $ pytest tests/github_api_test.py -k test_create_scenario
+
+   ```
+2. Results
+
+![screenhsot](results/github-api-results.jpg)

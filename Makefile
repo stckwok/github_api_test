@@ -1,6 +1,9 @@
 install:
 	pip install --upgrade pip &&\
 		pip install -r requirements.txt
+install_win:
+	python.exe -m pip install --upgrade pip &&\
+		pip install -r requirements.txt
 format:
 	#format code
 	black github_api.py

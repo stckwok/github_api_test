@@ -2,3 +2,4 @@ pytest-playwright
 pylint
 pytest-cov
 black
+behave
