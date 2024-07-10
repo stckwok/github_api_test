@@ -2,6 +2,13 @@
 
 GitHub API validation using Playwright
 
+# Setup
+Enviroment variables required by GitHub API calls
+
+API_TOKEN = os.getenv('API_PWRIGHT')
+USER_NAME = os.getenv('USER_NAME')
+
+# Steps
 - python -m venv venv
 - source venv/bin/activate   (or .\venv\Scripts\activate for Windows)
 - make install  (or make install_win)
