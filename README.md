@@ -5,8 +5,8 @@ GitHub API validation using Playwright
 # Setup
 Enviroment variables required by GitHub API calls
 
-API_TOKEN = os.getenv('API_PWRIGHT')
-USER_NAME = os.getenv('USER_NAME')
+- API_TOKEN = os.getenv('API_PWRIGHT')
+- USER_NAME = os.getenv('USER_NAME')
 
 # Steps
 - python -m venv venv
@@ -17,7 +17,7 @@ USER_NAME = os.getenv('USER_NAME')
 
 # Testing
 
-1. Specify which pytest tests to run from a file
+1. Specify which pytest tests to run from a file (-k for keyword filtering)
 
    ```
     $ pytest tests/github_api_test.py -k test_create_scenario
